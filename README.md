@@ -204,7 +204,7 @@ Add to agent allowlist:
       {
         id: "noah",
         tools: {
-          allow: ["search_pro", "web_fetch", "web_map", "get_sources"]
+          alsoAllow: ["search_pro", "web_fetch", "web_map", "get_sources"]
         }
       }
     ]

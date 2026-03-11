@@ -57,7 +57,7 @@ async function loadFirecrawlKeys(): Promise<string[]> {
 }
 
 async function tavilyExtract(url: string): Promise<string | null> {
-  const apiKey = await loadTavilyKey();
+  const keys = await loadTavilyKeys();
   if (keys.length === 0) return null;
 
   const config = await loadFetchConfig();
