@@ -1,7 +1,7 @@
 {
   "name": "search-multi-engine",
-  "version": "2.0.0",
-  "description": "Multi-provider search plugin (SearxNG + Tavily + Grok + Exa) for OpenClaw",
+  "version": "2.1.0",
+  "description": "Multi-provider search plugin with content extraction and search planning (SearxNG + Tavily + Grok + Exa) for OpenClaw",
   "type": "module",
   "main": "index.ts",
   "keywords": [
@@ -13,7 +13,7 @@
     "grok",
     "exa"
   ],
-  "author": "Noah",
+  "author": "vakyi@hotmail.com",
   "license": "MIT",
   "dependencies": {
     "@sinclair/typebox": "^0.34.48"
