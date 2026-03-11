@@ -1,0 +1,11 @@
+{
+  "id": "search-multi-engine",
+  "name": "Search Multi Engine",
+  "description": "Multi-provider search plugin (SearxNG + Tavily) for OpenClaw",
+  "version": "1.0.0",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}

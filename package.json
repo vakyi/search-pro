@@ -1,0 +1,24 @@
+{
+  "name": "search-multi-engine",
+  "version": "1.0.0",
+  "description": "Multi-provider search plugin (SearxNG + Tavily) for OpenClaw",
+  "type": "module",
+  "main": "index.ts",
+  "keywords": [
+    "openclaw",
+    "openclaw-plugin",
+    "search",
+    "searxng",
+    "tavily"
+  ],
+  "author": "Noah",
+  "license": "MIT",
+  "dependencies": {
+    "@sinclair/typebox": "^0.34.48"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}
