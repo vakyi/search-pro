@@ -71,3 +71,7 @@ $RECYCLE.BIN/
 
 # Dev doc
 plan/
+
+# Build output
+dist/
+node_modules/

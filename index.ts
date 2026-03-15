@@ -8,5 +8,5 @@ import { registerSearchTool } from "./src/search.js";
 
 export default function (api: OpenClawPluginApi) {
   registerSearchTool(api);
-  api.logger.info("Search Multi Engine plugin loaded (v3.0)");
+  api.logger.info("Search Multi Engine plugin loaded (v2.1.0)");
 }

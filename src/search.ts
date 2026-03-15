@@ -120,8 +120,16 @@ const INTENT_WEIGHTS: Record<
 
 const sessionCache = new SessionCache();
 
+function getOpenClawDir(): string {
+  return (
+    process.env.OPENCLAW_SHARED_DIR ||
+    process.env.OPENCLAW_HOME ||
+    join(homedir(), ".openclaw")
+  );
+}
+
 function getConfigPath(): string {
-  return join(homedir(), ".openclaw", "search-config.json");
+  return join(getOpenClawDir(), "search-config.json");
 }
 
 async function loadConfig(): Promise<SearchConfig> {
@@ -136,7 +144,7 @@ async function loadConfig(): Promise<SearchConfig> {
 async function loadEngineKeys(
   engine: "tavily" | "grok" | "exa",
 ): Promise<string[]> {
-  const keysPath = join(homedir(), ".openclaw", "keys", `${engine}-keys.json`);
+  const keysPath = join(getOpenClawDir(), "keys", `${engine}-keys.json`);
   try {
     const content = await readFile(keysPath, "utf-8");
     const config = JSON.parse(content);

@@ -13,8 +13,16 @@ interface FetchConfig {
   };
 }
 
+function getOpenClawDir(): string {
+  return (
+    process.env.OPENCLAW_SHARED_DIR ||
+    process.env.OPENCLAW_HOME ||
+    join(homedir(), ".openclaw")
+  );
+}
+
 async function loadFetchConfig(): Promise<FetchConfig> {
-  const configPath = join(homedir(), ".openclaw", "search-config.json");
+  const configPath = join(getOpenClawDir(), "search-config.json");
   try {
     const content = await readFile(configPath, "utf-8");
     const config = JSON.parse(content);
@@ -28,7 +36,7 @@ async function loadFetchConfig(): Promise<FetchConfig> {
 }
 
 async function loadTavilyKeys(): Promise<string[]> {
-  const keysPath = join(homedir(), ".openclaw", "keys", "tavily-keys.json");
+  const keysPath = join(getOpenClawDir(), "keys", "tavily-keys.json");
   try {
     const content = await readFile(keysPath, "utf-8");
     const config = JSON.parse(content);
@@ -40,12 +48,7 @@ async function loadTavilyKeys(): Promise<string[]> {
 }
 
 async function loadFirecrawlKeys(): Promise<string[]> {
-  const keysPath = join(
-    homedir(),
-    ".openclaw",
-    "keys",
-    "firecrawl-keys.json",
-  );
+  const keysPath = join(getOpenClawDir(), "keys", "firecrawl-keys.json");
   try {
     const content = await readFile(keysPath, "utf-8");
     const config = JSON.parse(content);
