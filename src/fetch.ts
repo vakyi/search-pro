@@ -136,7 +136,7 @@ async function firecrawlScrape(url: string): Promise<string | null> {
   return null;
 }
 
-export async function webFetch(url: string): Promise<string> {
+export async function deepFetch(url: string): Promise<string> {
   let result = await tavilyExtract(url);
   if (result) return result;
 

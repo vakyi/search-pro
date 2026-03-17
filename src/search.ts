@@ -3,7 +3,7 @@ import { homedir } from "node:os";
 import { join } from "node:path";
 import { readFile } from "node:fs/promises";
 import { SessionCache, generateSessionId } from "./session.js";
-import { webFetch, webMap } from "./fetch.js";
+import { deepFetch, webMap } from "./fetch.js";
 import { planningEngine, splitCsv } from "./planning.js";
 
 interface SearchResult {
@@ -857,7 +857,7 @@ export function registerSearchTool(api: OpenClawPluginApi) {
 
   api.registerTool(
     {
-      name: "web_fetch",
+      name: "deep_fetch",
       description:
         "Fetches and extracts complete content from a URL, returning it as structured Markdown. Supports Tavily and Firecrawl extraction services. Maintains 100% content fidelity without summarization.",
       parameters: {
@@ -875,7 +875,7 @@ export function registerSearchTool(api: OpenClawPluginApi) {
         const { url } = params as { url: string };
 
         try {
-          const content = await webFetch(url);
+          const content = await deepFetch(url);
           return {
             content: [
               {
